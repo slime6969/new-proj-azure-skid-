@@ -12,8 +12,8 @@ end
 
 -- Variables
 
-local UiLib = loadstring(game:HttpGet("https://pastebin.com/raw/JFzC7iXS"))()
-local NotifyLib = loadstring(game:HttpGet("https://pastebin.com/raw/KRep3e1w"))()
+local UiLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/slime6969/new-proj-azure-skid-/main/UI"))()
+local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/slime6969/new-proj-azure-skid-/main/NOTIFYLIB"))()
 
 local TargetPlr, CamlockPlr
 local TargBindEnabled, CamBindEnabled = false, false
