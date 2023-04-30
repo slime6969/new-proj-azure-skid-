@@ -134,6 +134,14 @@ local CameraAimbot = {
 	UseFov = false
 }
 
+local Utilities = {
+	NoJumpCooldown = false, 
+	NoSlowdown = false, 
+
+	AutoStomp = false, 
+	AutoReload = false
+}
+
 local Movement = {
 	SpeedEnabled = false, 
 	SpeedAmount = 1, 
@@ -209,7 +217,7 @@ UiLib:CheckErrors(true, true, Player, __, Actyrn7104) -- If you remove there's a
 
 -- Window
 
-local Actyrn_7104 = UiLib:CreateWindow("SlimeX + SKIDDD", Vector2.new(500, 600), Enum.KeyCode.RightShift)
+local Actyrn_7104 = UiLib:CreateWindow("SlimeX | SKIDDED | HAAAHAHAHAA", Vector2.new(500, 600), Enum.KeyCode.RightShift)
 
 -- Tabs
 
@@ -227,6 +235,7 @@ local CameraAimbotSec = MainTab:CreateSector("Camera Aimbot", "right")
 
 -- MISC
 
+local UtilitiesSec = MiscTab:CreateSector("Utilities", "left")
 local MovementSec = MiscTab:CreateSector("Movement", "left")
 local SelfDotSec = MiscTab:CreateSector("Self Dot", "left")
 
@@ -483,6 +492,34 @@ CameraAimbotSec:AddSlider("FOV Size", 5, 80, 500, 1, function(Value)
 end)
 
 -- MISC
+
+-- Utilities
+
+UtilitiesSec:AddToggle("No Jump Cooldown", false, function(Value)
+	Utilities.NoJumpCooldown = Value
+end)
+
+UtilitiesSec:AddToggle("No Slowdown", false, function(Value)
+	Utilities.NoSlowdown = Value
+end)
+
+UtilitiesSec:AddToggle("Auto Stomp", false, function(Value)
+	Utilities.AutoStomp = Value
+end)
+
+UtilitiesSec:AddToggle("Auto Reload", false, function(Value)
+	Utilities.AutoReload = Value
+end)
+
+local TrashTalkTog = UtilitiesSec:AddToggle("Trash Talk", false, function(Value)
+	if Value then
+		local TrashTalkWords = {".gg/wDngb2mv4H", "How to aim pls help", "my lil brother was playing AND HE BEAT U LOLOL :rofl:", "Mobile player beat u lol", "420 ping and u got SLAMMED", "ur bad", "seed", "im not locking ur just bad", "clown", "sonned", "LOLL UR BAD", "dont even try..", "ez", "gg = get good", "my grandmas better than u :skull:", "hop off kid", "bro cannot aim", "u got absolutely DOGGED on", "i run this server son", "what is bro doing :skull:", "no way", "my cat walked across my keyboard and beat u LOLL"}
+
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(TrashTalkWords[math.random(#TrashTalkWords)], "All")
+	end
+end)
+
+TrashTalkTog:AddKeybind()
 
 -- Self Dot
 
@@ -1345,8 +1382,8 @@ spawn(function()
 
 				if TargetAimbot.Notify then
 					NotifyLib.Notify({
-						Title = "SlimeX + SKIDDD", 
-						Description = "UNSUCKING DICK OF  " .. TargetPlr.DisplayName, 
+						Title = "Azure Modded [Actyrn#7104]", 
+						Description = "Untargeting: " .. TargetPlr.DisplayName, 
 						Duration = 3
 					})
 				end
@@ -1357,8 +1394,8 @@ spawn(function()
 
 					if TargetAimbot.Notify then
 						NotifyLib.Notify({
-							Title = "SlimeX + SKIDDD", 
-							Description = "SUCKING DICK OF  " .. TargetPlr.DisplayName, 
+							Title = "Azure Modded [Actyrn#7104]", 
+							Description = "Targeting: " .. TargetPlr.DisplayName, 
 							Duration = 3
 						})
 					end
@@ -1378,8 +1415,8 @@ spawn(function()
 
 				if CameraAimbot.Notify then
 					NotifyLib.Notify({
-						Title = "SlimeX + SKIDDD", 
-						Description = "UNSUCKING DICK OF  " .. CamlockPlr.DisplayName, 
+						Title = "Azure Modded [Actyrn#7104]", 
+						Description = "Untargeting: " .. CamlockPlr.DisplayName, 
 						Duration = 3
 					})
 				end
@@ -1390,8 +1427,8 @@ spawn(function()
 
 					if CameraAimbot.Notify then
 						NotifyLib.Notify({
-							Title = "SlimeX + SKIDDD", 
-							Description = "SUCKING DICK OF  " .. CamlockPlr.DisplayName, 
+							Title = "Azure Modded [Actyrn#7104]", 
+							Description = "Targeting: " .. CamlockPlr.DisplayName, 
 							Duration = 3
 						})
 					end
